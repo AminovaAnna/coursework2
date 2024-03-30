@@ -19,6 +19,7 @@ import static org.mockito.Mockito.when;
 class ExaminerServiceImplTest {
     static List<Question> JAVA_QUESTIONS = List.of(
             new Question("book", "read"),
+            new Question("song", "sing"),
             new Question("program", "write"));
 
     @Mock
@@ -42,11 +43,12 @@ class ExaminerServiceImplTest {
                 .thenReturn(JAVA_QUESTIONS.get(0))
                 .thenReturn(JAVA_QUESTIONS.get(1));
 
-    var actual = ExaminerService.getQuestions(2);
 
-    assertThat(actual).containsExactlyInAnyOrder(
-            JAVA_QUESTIONS.get(0),
-            JAVA_QUESTIONS.get(1));
+        var actual = ExaminerService.getQuestions(2);
+
+        assertThat(actual).containsExactlyInAnyOrder(
+                JAVA_QUESTIONS.get(0),
+                JAVA_QUESTIONS.get(1));
 
 
     }
